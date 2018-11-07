@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+:host(.active) {
+  background-color: lightcyan;
+}
+
+:host(:hover) {
+  background-color: royalblue;
+}
+
+h3 {
+  color: deepskyblue;
+}
+
+:host-context(.theme-red) .btn-primary {
+  color: #fff;
+  background-color: crimson;
+  border-color: crimson;
+}
+
+:host-context(.theme-red) .btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
