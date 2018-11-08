@@ -1,10 +1,10 @@
-import { Directive, ElementRef, Renderer2, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, Input, ElementRef, Renderer2, HostListener, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[textColor]'
+  selector: '[appTextColor]'
 })
-export class TextColorDirective implements OnInit{
-  @Input('textColor') color: string;
+export class TextColorDirective implements OnInit {
+  @Input('appTextColor') color: string;
   @Input() defaultColor: string;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
@@ -12,11 +12,12 @@ export class TextColorDirective implements OnInit{
   ngOnInit() {
     this.textColor(this.defaultColor);
   }
-  @HostListener('mouseenter') handleMouseEnter() {
+
+  @HostListener('mouseenter') handleMouseEvent() {
     this.textColor(this.color);
   }
 
-  @HostListener('mouseleave') handleMoustLeave() {
+  @HostListener('mouseleave') handleMouseLeave() {
     this.textColor(this.defaultColor);
   }
 
