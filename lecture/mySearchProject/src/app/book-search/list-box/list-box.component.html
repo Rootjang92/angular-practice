@@ -1,0 +1,36 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table class="list-table-style" #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="bisbn">
+      <mat-header-cell *matHeaderCellDef> ISBN </mat-header-cell>
+      <mat-cell *matCellDef="let element">  </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="btitle">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element">  </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="bauthor">
+      <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+      <mat-cell *matCellDef="let element">  </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="bprice">
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.bprice | bookPrice }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row class="list-header-style"
+                    *matHeaderRowDef="displayedColumns">
+    </mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowSelect(row)"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons>
+  </mat-paginator>
+</div>
+

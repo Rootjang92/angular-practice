@@ -1,0 +1,16 @@
+<div class="example-container">
+    <mat-toolbar class="search-toolbar-style">
+      Search Keyword : {{keyword}}
+      <ng-container *ngIf="bookCategory != null">
+        <!-- 만약 bookCategory값이 null이면 출력되지 않는다. -->
+        ( {{bookCategory}} )
+      </ng-container>
+    </mat-toolbar>
+    <mat-form-field>
+      <input matInput #inputKeyword placeholder="Search Keyword"
+             [(ngModel)]="keyword" (ngModelChange)="inputChange()">
+    </mat-form-field>
+    <button mat-raised-button color="warn"
+        (click)="setKeyword(inputKeyword.value)">Search!</button>
+</div>
+
